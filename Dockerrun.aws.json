@@ -24,7 +24,7 @@
     },
     {
       "name": "nginx",
-      "image": "huhaws/multi-nginx",
+      "image": "huhdockerhub/multi-nginx",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [
