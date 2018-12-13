@@ -3,23 +3,23 @@ services:
   - docker
 
 before_install:
-  - docker build -t dsaenzjhc/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t dsaenz86/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run dsaenzjhc/react-test npm test -- --coverage
+  - docker run dsaenz86/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t dsaenzjhc/multi-client ./client
-  - docker build -t dsaenzjhc/multi-nginx ./nginx
-  - docker build -t dsaenzjhc/multi-server ./server
-  - docker build -t dsaenzjhc/multi-worker ./worker
+  - docker build -t dsaenz86/multi-client ./client
+  - docker build -t dsaenz86/multi-nginx ./nginx
+  - docker build -t dsaenz86/multi-server ./server
+  - docker build -t dsaenz86/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push dsaenzjhc/multi-client
-  - docker push dsaenzjhc/multi-nginx
-  - docker push dsaenzjhc/multi-server
-  - docker push dsaenzjhc/multi-worker
+  - docker push dsaenz86/multi-client
+  - docker push dsaenz86/multi-nginx
+  - docker push dsaenz86/multi-server
+  - docker push dsaenz86/multi-worker
 
 deploy:
   provider: elasticbeanstalk
